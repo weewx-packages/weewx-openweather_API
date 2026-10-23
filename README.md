@@ -14,12 +14,22 @@ A source-branch ZIP does not include those packaging repairs. Use `1.0.0.post202
 
 ## Install
 
+For a pip installation, activate the existing virtual environment that runs
+your WeeWX service before running these commands. Both `python` and `weectl`
+must come from that environment. For a distribution package installation, use
+its `weectl`, with `sudo` if required. Add `--config /path/to/weewx.conf` to the
+extension command when your station configuration is not found automatically.
+
+For Debian or Raspberry Pi OS package installations, use
+`sudo apt install python3-yaml` instead of pip. The pip command below is for
+WeeWX running in its existing virtual environment.
+
 Use WeeWX 5.5–5.x and Python 3.10–3.14, with `PyYAML` installed in the WeeWX
 Python environment. You need an OpenWeather API key with access to the selected
 APIs and working station latitude/longitude in `weewx.conf`.
 
 ```sh
-python -m pip install PyYAML
+python -m pip install 'PyYAML'
 ```
 
 Stop WeeWX and back up its configuration and archive database. The installer
@@ -33,12 +43,9 @@ Install the published archive with WeeWX 5's extension installer:
 weectl extension install https://github.com/weewx-packages/catalog/releases/download/openweather-api/v1.0.0.post2026102201/openweather-api-1.0.0.post2026102201.tar.gz
 ```
 
-Use the `weectl` from your WeeWX environment. Add
-`--config /path/to/weewx.conf` when the station configuration is not found
-automatically. Package installations may require `sudo`; activate the WeeWX
-virtual environment for pip installations. Restart your WeeWX service after
-configuration, for example `sudo systemctl restart weewx` on systemd.
-The installer does not restart it for you.
+Restart your WeeWX service after configuration, for example
+`sudo systemctl restart weewx` on systemd. The installer does not restart it
+for you.
 
 Answer the installer's API key, field selection and interval prompts.
 The installer copies `openweather.py` and `openweather_fields.yaml` together
