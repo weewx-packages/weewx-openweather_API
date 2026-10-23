@@ -7,8 +7,8 @@ Thanks for your interest in contributing! Here's how to get involved.
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/weewx-openweather.git
-   cd weewx-openweather
+   git clone https://github.com/YOUR_USERNAME/weewx-openweather_API.git
+   cd weewx-openweather_API
    ```
 3. **Create a branch** for your changes:
    ```bash
